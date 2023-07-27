@@ -13,7 +13,16 @@ class AddBottomModelSheet extends StatelessWidget {
           SizedBox(
             height: 32,
           ),
-          CustomTextField()
+          CustomTextField(
+            title: 'Title',
+          ),
+          SizedBox(
+            height: 16,
+          ),
+          CustomTextField(
+            title: 'Content',
+            maxlines: 5,
+          )
         ],
       ),
     );
