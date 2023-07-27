@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:notes_app_hive/views/notes_view.dart';
 
+
+import 'Features/presentation/views/notes_view.dart';
 import 'constants.dart';
 
 void main() async {

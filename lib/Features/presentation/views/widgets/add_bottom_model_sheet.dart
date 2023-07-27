@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app_hive/views/widgets/custom_button.dart';
-import 'package:notes_app_hive/views/widgets/custom_text_fielsd.dart';
+
+import 'custom_button.dart';
+import 'custom_text_fielsd.dart';
+
 
 class AddBottomModelSheet extends StatelessWidget {
   const AddBottomModelSheet({super.key});
