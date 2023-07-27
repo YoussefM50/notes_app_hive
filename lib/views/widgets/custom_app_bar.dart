@@ -19,5 +19,3 @@ class CustomAppBAr extends StatelessWidget {
     );
   }
 }
-
-
