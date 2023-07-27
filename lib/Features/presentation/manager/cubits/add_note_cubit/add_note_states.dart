@@ -1,13 +1,13 @@
 abstract class AddNoteStates {}
 
-class AppNoteInitialState extends AddNoteStates {}
+class AddNoteInitialState extends AddNoteStates {}
 
-class AppNoteSuccessState extends AddNoteStates {}
+class AddNoteSuccessState extends AddNoteStates {}
 
-class AppNoteErrorState extends AddNoteStates {
+class AddNoteErrorState extends AddNoteStates {
   final String errorMessage;
 
-  AppNoteErrorState(this.errorMessage);
+  AddNoteErrorState(this.errorMessage);
 }
 
-class AppNoteLoadingState extends AddNoteStates {}
+class AddNoteLoadingState extends AddNoteStates {}
