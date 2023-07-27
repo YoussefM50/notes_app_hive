@@ -3,4 +3,8 @@ import 'package:notes_app_hive/Features/presentation/manager/cubits/add_note_cub
 
 class AddNoteCubit extends Cubit<AddNoteStates> {
   AddNoteCubit() : super(AppNoteInitialState());
-}
+
+ 
+
+  }
+
