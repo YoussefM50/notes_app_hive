@@ -57,7 +57,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                 onTap: () {
                   if (formkey.currentState!.validate()) {
                     formkey.currentState!.save();
-                    var notemodel = NotesModel(
+                    NoteModel notemodel = NoteModel(
                         title: title!,
                         subTitle: subtitle!,
                         date: DateTime.now().toString(),
