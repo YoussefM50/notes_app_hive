@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app_hive/Core/utils/widgets/custom_loading_indicator.dart';
 import 'package:notes_app_hive/constants.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key, this.onTap});
+  const CustomButton({super.key, this.onTap,  this.isLoading =false});
 
-final void Function()? onTap;
+  final void Function()? onTap;
+  final bool isLoading;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -14,8 +16,8 @@ final void Function()? onTap;
         height: 55,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8), color: kPrimaryColor),
-        child: const Center(
-          child: Text(
+        child:  Center(
+          child: isLoading? const CustomLoadingIndicator() :const Text(
             'Add',
             style: TextStyle(
                 color: Colors.black, fontWeight: FontWeight.bold, fontSize: 18),
