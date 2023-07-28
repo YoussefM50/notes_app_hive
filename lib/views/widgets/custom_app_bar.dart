@@ -7,11 +7,12 @@ import '../../Features/presentation/views/widgets/custom_search_icon.dart';
 class CustomAppBAr extends StatelessWidget {
   const CustomAppBAr({
     Key? key,
-    required this.appbarTitle, required this.icon,
+    required this.appbarTitle, required this.icon, this.onPressed,
   }) : super(key: key);
 
   final String appbarTitle;
   final IconData icon;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -22,6 +23,7 @@ class CustomAppBAr extends StatelessWidget {
         ),
         const Spacer(),
         CustomSearchIcon(
+          onPressed: onPressed,
           icon: icon,
         )
       ],
