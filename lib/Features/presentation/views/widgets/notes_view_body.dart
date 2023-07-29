@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app_hive/Features/presentation/views/search_view.dart';
 import 'package:notes_app_hive/Features/presentation/views/widgets/custom_app_bar.dart';
 import 'custom_notes_list_view.dart';
 
@@ -7,18 +8,22 @@ class NotesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           CustomAppBAr(
-            appbarTitle: 'Notes',
-            icon: Icons.search,
-          ),
-          Expanded(child: NotesListView())
+              appbarTitle: 'Notes',
+              icon: Icons.search,
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return const SearchView();
+                }));
+              }),
+          const Expanded(child: NotesListView())
         ],
       ),
     );

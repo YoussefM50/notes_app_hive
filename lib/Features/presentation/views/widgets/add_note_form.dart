@@ -4,8 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:notes_app_hive/Features/data/models/notes_model.dart';
 import 'package:notes_app_hive/Features/presentation/manager/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app_hive/Features/presentation/manager/cubits/add_note_cubit/add_note_states.dart';
-
-import 'color_list_view.dart';
+import 'package:notes_app_hive/constants.dart';
 import 'custom_button.dart';
 import 'custom_text_fielsd.dart';
 
@@ -48,10 +47,6 @@ class _AddNoteFormState extends State<AddNoteForm> {
             onSaved: (value) {
               subtitle = value;
             },
-          ),
-          const ColorListView(),
-          const SizedBox(
-            height: 16,
           ),
           const ColorListView(),
           const SizedBox(
@@ -111,7 +106,7 @@ class ColorListView extends StatelessWidget {
       height: 76,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: 10,
+          itemCount: kColors.length,
           itemBuilder: (context, index) {
             return const ColorItem();
           }),

@@ -3,12 +3,18 @@ import 'package:notes_app_hive/constants.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField(
-      {super.key, required this.title, this.maxlines = 1, this.onSaved, this.onChanged});
+      {super.key,
+      required this.title,
+      this.maxlines = 1,
+      this.onSaved,
+      this.onChanged,
+      this.icon});
 
   final String title;
   final int maxlines;
   final void Function(String?)? onSaved;
   final void Function(String)? onChanged;
+  final IconData? icon;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -24,6 +30,10 @@ class CustomTextField extends StatelessWidget {
       maxLines: maxlines,
       cursorColor: kPrimaryColor,
       decoration: InputDecoration(
+          suffixIcon: Icon(
+            icon,
+            color: kPrimaryColor,
+          ),
           hintText: title,
           hintStyle: const TextStyle(color: kPrimaryColor),
           border: buildborder(),
