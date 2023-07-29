@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app_hive/Features/data/models/notes_model.dart';
 import 'package:notes_app_hive/Features/presentation/manager/cubits/notes_cubit/notes_cubit.dart';
-import 'package:notes_app_hive/views/widgets/custom_app_bar.dart';
+import 'package:notes_app_hive/Features/presentation/views/widgets/custom_app_bar.dart';
+import 'package:notes_app_hive/Features/presentation/views/widgets/edit_color_list_view.dart';
 
 import 'custom_text_fielsd.dart';
 
@@ -50,9 +51,13 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
             onChanged: (value) {
               content = value;
             },
-            title:  widget.note.subTitle,
+            title: widget.note.subTitle,
             maxlines: 5,
-          )
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          EditNoteColorsList(note: widget.note)
         ],
       ),
     );

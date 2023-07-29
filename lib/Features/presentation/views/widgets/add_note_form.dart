@@ -5,6 +5,7 @@ import 'package:notes_app_hive/Features/data/models/notes_model.dart';
 import 'package:notes_app_hive/Features/presentation/manager/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app_hive/Features/presentation/manager/cubits/add_note_cubit/add_note_states.dart';
 
+import 'color_list_view.dart';
 import 'custom_button.dart';
 import 'custom_text_fielsd.dart';
 
@@ -48,6 +49,11 @@ class _AddNoteFormState extends State<AddNoteForm> {
               subtitle = value;
             },
           ),
+          const ColorListView(),
+          const SizedBox(
+            height: 16,
+          ),
+          const ColorListView(),
           const SizedBox(
             height: 16,
           ),
@@ -80,6 +86,35 @@ class _AddNoteFormState extends State<AddNoteForm> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class ColorItem extends StatelessWidget {
+  const ColorItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const CircleAvatar(
+      radius: 38,
+      backgroundColor: Colors.teal,
+    );
+  }
+}
+
+class ColorListView extends StatelessWidget {
+  const ColorListView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 76,
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return const ColorItem();
+          }),
     );
   }
 }
