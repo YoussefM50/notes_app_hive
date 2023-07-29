@@ -110,7 +110,8 @@ class _ColorListViewState extends State<ColorListView> {
               onTap: () {
                 currentindex = index;
                 setState(() {});
-                
+                BlocProvider.of<AddNoteCubit>(context).color =
+                    kColors[currentindex];
               },
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8),

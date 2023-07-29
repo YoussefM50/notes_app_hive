@@ -4,6 +4,8 @@ import 'package:notes_app_hive/Core/utils/widgets/custom_loading_indicator.dart'
 import 'package:notes_app_hive/Features/presentation/manager/cubits/search_cubit/search_cubit.dart';
 import 'package:notes_app_hive/Features/presentation/manager/cubits/search_cubit/search_states.dart';
 import 'package:notes_app_hive/Features/presentation/views/widgets/custom_text_fielsd.dart';
+import 'package:notes_app_hive/Features/presentation/views/widgets/search_list_view.dart';
+
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
@@ -15,11 +17,11 @@ class SearchViewBody extends StatelessWidget {
       builder: (context, state) {
         if (state is SearchNoteLoadingState) {
           return const CustomLoadingIndicator();
-        } else if (state is SearchNoteSuccessState || state is SearchNoteInitialState) {
+        } else if (state is SearchNoteSuccessState ||
+            state is SearchNoteInitialState) {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 const SizedBox(
                   height: 50,
@@ -28,13 +30,12 @@ class SearchViewBody extends StatelessWidget {
                   onChanged: (value) {
                     BlocProvider.of<SearchCubit>(context)
                         .fetchSearchNotes(value);
-                    print(BlocProvider.of<SearchCubit>(context)
-                        .notes);
+                    print(BlocProvider.of<SearchCubit>(context).notes);
                   },
                   title: 'Search',
                   icon: Icons.search,
                 ),
-
+                const Expanded(child: SearchListView())
               ],
             ),
           );
