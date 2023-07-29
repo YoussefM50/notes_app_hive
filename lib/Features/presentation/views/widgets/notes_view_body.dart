@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app_hive/Features/presentation/views/search_view.dart';
 import 'package:notes_app_hive/Features/presentation/views/widgets/custom_app_bar.dart';
+import '../search_view.dart';
 import 'custom_notes_list_view.dart';
 
 class NotesViewBody extends StatelessWidget {

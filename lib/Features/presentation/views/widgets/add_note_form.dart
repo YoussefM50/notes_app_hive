@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:notes_app_hive/Features/data/models/notes_model.dart';
 import 'package:notes_app_hive/Features/presentation/manager/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app_hive/Features/presentation/manager/cubits/add_note_cubit/add_note_states.dart';
+import 'package:notes_app_hive/Features/presentation/views/widgets/color_item.dart';
 import 'package:notes_app_hive/constants.dart';
 import 'custom_button.dart';
 import 'custom_text_fielsd.dart';
@@ -48,6 +49,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
               subtitle = value;
             },
           ),
+          const SizedBox(
+            height: 16,
+          ),
           const ColorListView(),
           const SizedBox(
             height: 16,
@@ -85,21 +89,15 @@ class _AddNoteFormState extends State<AddNoteForm> {
   }
 }
 
-class ColorItem extends StatelessWidget {
-  const ColorItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const CircleAvatar(
-      radius: 38,
-      backgroundColor: Colors.teal,
-    );
-  }
-}
-
-class ColorListView extends StatelessWidget {
+class ColorListView extends StatefulWidget {
   const ColorListView({super.key});
 
+  @override
+  State<ColorListView> createState() => _ColorListViewState();
+}
+
+class _ColorListViewState extends State<ColorListView> {
+  int currentindex = 0;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -108,7 +106,20 @@ class ColorListView extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemCount: kColors.length,
           itemBuilder: (context, index) {
-            return const ColorItem();
+            return GestureDetector(
+              onTap: () {
+                currentindex = index;
+                setState(() {});
+                
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: ColorItem(
+                  color: kColors[index],
+                  isActive: index == currentindex ? true : false,
+                ),
+              ),
+            );
           }),
     );
   }
